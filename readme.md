@@ -2,6 +2,8 @@
 
 A plugin to quickly cycle between your themes and persist the desired one across vim sessions without touching your config.
 
+![demo](https://user-images.githubusercontent.com/11699033/210461674-61f98c11-4b92-49ab-a748-f0f7847f3b46.gif)
+
 ## Installation
 
 Via [packer.nvim](https://github.com/wbthomason/packer.nvim):
