@@ -39,29 +39,34 @@ local function open()
   return vim.api.nvim_create_autocmd({"CursorMoved"}, {buffer = buffer, callback = _3_})
 end
 local function restore()
-  return vim.cmd.colorscheme(vim.fn.readfile(file_path)[1])
+  local ok, file = pcall(vim.fn.readfile, file_path)
+  if ok then
+    return vim.cmd.colorscheme(file[1])
+  else
+    return nil
+  end
 end
-local function setup(_4_)
-  local _arg_5_ = _4_
-  local blacklist = _arg_5_["blacklist"]
-  local blacklist_default = _arg_5_["blacklist_default"]
+local function setup(_5_)
+  local _arg_6_ = _5_
+  local blacklist = _arg_6_["blacklist"]
+  local blacklist_default = _arg_6_["blacklist_default"]
   vim.api.nvim_create_augroup("restore_theme", {clear = true})
   vim.api.nvim_create_autocmd({"VimEnter"}, {group = "restore_theme", pattern = "*", callback = restore, nested = true})
-  local function _6_()
+  local function _7_()
     if ((nil == blacklist_default) or blacklist_default) then
       return default_themes
     else
       return {}
     end
   end
-  config = vim.tbl_extend("force", config, {blacklist = {(blacklist or {}), _6_()}})
+  config = vim.tbl_extend("force", config, {blacklist = {(blacklist or {}), _7_()}})
   return nil
 end
 local timer = vim.loop.new_timer()
 timer:start(300, 0, vim.schedule_wrap(restore))
 setup({})
 setup({blacklist = {"catppuccin-latte", "minicyan", "minischeme"}})
-local function _7_()
+local function _8_()
   return open()
 end
-return {open = open, open_lazy = _7_}
+return {open = open, open_lazy = _8_}

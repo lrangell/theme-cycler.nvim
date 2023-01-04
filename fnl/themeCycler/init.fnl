@@ -33,7 +33,9 @@
                                  {: buffer :callback #(set-theme colorschemes)})))
 
 (fn restore []
-  (vim.cmd.colorscheme (. (vim.fn.readfile file-path) 1)))
+  (let [(ok file) (pcall vim.fn.readfile file-path)]
+    (when ok
+      (vim.cmd.colorscheme (. file 1)))))
 
 (fn setup [{: blacklist : blacklist_default}]
   (vim.api.nvim_create_augroup :restore_theme {:clear true})
