@@ -60,11 +60,11 @@ local function setup(_5_)
   config = vim.tbl_extend("force", config, {blacklist = {(blacklist or {}), _7_()}})
   return nil
 end
-local timer = vim.loop.new_timer()
-timer:start(300, 0, vim.schedule_wrap(restore))
 setup({})
 setup({blacklist = {"catppuccin-latte", "minicyan", "minischeme"}})
+local timer = vim.loop.new_timer()
+timer:start(200, 0, vim.schedule_wrap(restore))
 local function _8_()
   return open()
 end
-return {open = open, open_lazy = _8_}
+return {open = open, open_lazy = _8_, restore = restore}

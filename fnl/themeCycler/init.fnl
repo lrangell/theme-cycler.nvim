@@ -45,10 +45,10 @@
                                                default-themes
                                                [])]})))
 
-(def timer (vim.loop.new_timer))
-(timer:start 300 0 (vim.schedule_wrap restore))
-
 (setup {})
 (setup {:blacklist [:catppuccin-latte :minicyan :minischeme]})
 
-{: open :open_lazy #(open)}
+(def timer (vim.loop.new_timer))
+(timer:start 200 0 (vim.schedule_wrap restore))
+
+{: open :open_lazy #(open) : restore}
