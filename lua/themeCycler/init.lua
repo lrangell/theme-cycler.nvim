@@ -50,8 +50,6 @@ local function setup(_5_)
   local _arg_6_ = _5_
   local blacklist = _arg_6_["blacklist"]
   local blacklist_default = _arg_6_["blacklist_default"]
-  vim.api.nvim_create_augroup("restore_theme", {clear = true})
-  vim.api.nvim_create_autocmd({"VimEnter"}, {group = "restore_theme", pattern = "*", callback = restore, nested = true})
   local function _7_()
     if ((nil == blacklist_default) or blacklist_default) then
       return default_themes

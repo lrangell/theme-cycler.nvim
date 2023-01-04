@@ -38,12 +38,6 @@
       (vim.cmd.colorscheme (. file 1)))))
 
 (fn setup [{: blacklist : blacklist_default}]
-  (vim.api.nvim_create_augroup :restore_theme {:clear true})
-  (vim.api.nvim_create_autocmd [:VimEnter]
-                               {:group :restore_theme
-                                :pattern "*"
-                                :callback restore
-                                :nested true})
   (set config (vim.tbl_extend :force config
                               {:blacklist [(or blacklist [])
                                            (if (or (= nil blacklist_default)
