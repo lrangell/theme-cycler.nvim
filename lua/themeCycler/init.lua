@@ -61,7 +61,6 @@ local function setup(_5_)
   return nil
 end
 setup({})
-setup({blacklist = {"catppuccin-latte", "minicyan", "minischeme"}})
 local timer = vim.loop.new_timer()
 timer:start(200, 0, vim.schedule_wrap(restore))
 local function _8_()

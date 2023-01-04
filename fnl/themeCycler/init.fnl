@@ -46,7 +46,6 @@
                                                [])]})))
 
 (setup {})
-(setup {:blacklist [:catppuccin-latte :minicyan :minischeme]})
 
 (def timer (vim.loop.new_timer))
 (timer:start 200 0 (vim.schedule_wrap restore))
