@@ -1,4 +1,4 @@
-*theme-cycler.nvim.txt*    For Neovim >= 0.8.0    Last change: 2023 January 05
+*theme-cycler.nvim.txt*    For Neovim >= 0.8.0    Last change: 2023 January 09
 
 ==============================================================================
 Table of Contents                        *theme-cycler.nvim-table-of-contents*
@@ -53,6 +53,13 @@ You can also map using:
 
 >lua
     vim.keymap.set("n", "<space>t", require"themeCycler".open_lazy)
+<
+
+
+Require the plugins on neovim startup to restore the saved theme.
+
+>lua
+    require"themeCycler"
 <
 
 
