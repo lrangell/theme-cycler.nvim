@@ -34,3 +34,9 @@ You can also map using:
 ```lua
 vim.keymap.set("n", "<space>t", require"themeCycler".open_lazy)
 ```
+
+Require the plugins on neovim startup to restore the saved theme.
+
+```lua
+require"themeCycler"
+```
